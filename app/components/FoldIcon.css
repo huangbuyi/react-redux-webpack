@@ -1,0 +1,57 @@
+.foldIcon{
+	width: 20px;
+	height: 20px;
+}
+.foldIcon span{
+	display: inline-block;
+	height: 2px;
+	position: absolute;
+	top: 9px;
+	left: 2px;
+	transition: background 325ms cubic-bezier(0.4, 0.0, 0.2, 1);
+	width:16px;	
+}
+
+.foldIcon-unfold span:nth-child(1){
+	background: #fff;
+	transform: rotateZ(180deg);
+	animation:foldIcon-rotate2 325ms cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.foldIcon-unfold span:nth-child(2){
+	background: #fff;
+	transform: rotateZ(0deg);
+	animation: foldIcon-rotate3 325ms cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+.foldIcon-fold span:nth-child(1){
+	background: #2196F3;
+	animation:foldIcon-rotate 325ms cubic-bezier(0.4, 0.0, 0.2, 1);
+	transform: rotateZ(90deg); 
+}
+
+.foldIcon-fold span:nth-child(2){
+	background: #2196F3;
+	transform: rotateZ(180deg);
+	animation: foldIcon-rotate4 325ms cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+@keyframes foldIcon-rotate
+{
+	0%   { transform: rotateZ(0deg); }
+	100% { transform: rotateZ(90deg); }
+}
+@keyframes foldIcon-rotate2
+{
+	0%   { transform: rotateZ(90deg); }
+	100% { transform: rotateZ(180deg); }
+}
+@keyframes foldIcon-rotate3
+{
+	0%   { transform: rotateZ(0deg); }
+	100% { transform: rotateZ(180deg); }
+}
+@keyframes foldIcon-rotate4
+{
+	0%   { transform: rotateZ(180deg); }
+	100% { transform: rotateZ(360deg); }
+}

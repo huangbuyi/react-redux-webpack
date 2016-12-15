@@ -1,0 +1,29 @@
+.header{
+	position: relative;
+	z-index: 9;
+	width: 100%;
+	height: 68px;
+	background: #F5F5F5;
+	padding-left: 36px;
+}
+.header h1{
+	display: inline-block;
+	color: #rgba(0,0,0,0.87);
+	font-size: 24px;
+	font-weight: lighter;
+	line-height: 68px;
+	margin-right: 16px;
+}
+.header span{
+	color:rgba(0,0,0,0.54);
+	font-size: 14px;
+}
+.header-logo{
+	float:left;
+	display: inline-block;
+}
+.header-search{
+	float:left;
+	display: inline-block;
+	padding: 16px 0 0 32px;
+}

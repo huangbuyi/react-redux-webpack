@@ -1,0 +1,81 @@
+input{
+    border:none;
+}
+input:focus, input:hover, input:active{
+    outline: none;
+}
+.searchBox{
+	position: relative;
+	width: 680px;
+	height: 40px;
+	box-sizing: border-box;
+	border-radius: 2px;
+}
+.searchBox-input{
+	border: none;
+	box-sizing: border-box;
+	box-shadow:0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+	background: #fff;
+	color: rgba(0,0,0,0.87);
+	display: inline-block;
+	float: left;
+	font-size: 16px;
+	height: 100%;
+	line-height: 36px;
+	padding-left: 138px; 
+	transition: box-shadow 200ms cubic-bezier(0.4, 0.0, 0.2, 1);
+	width: 100%;
+	border-radius: 2px;
+}
+.searchBox-input:hover{
+	box-shadow:0 3px 8px 0 rgba(0,0,0,0.2), 0 0 0 1px rgba(0,0,0,0.08);
+}
+.searchBox-input:focus{
+	box-shadow:0 3px 8px 0 rgba(0,0,0,0.2), 0 0 0 1px rgba(0,0,0,0.08);
+}
+.searchBox-engine{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 128px;
+	height: 100%;
+	line-height: 40px;
+	border-right: 1px solid #f0f0f0;
+	font-size: 16px;
+	color: rgba(0,0,0,0.54);
+	transition: background 200ms cubic-bezier(0.2,0,0.4,1);
+}
+.searchBox-engine:hover{
+	background: #f0f0f0;
+}
+.searchBox-submit{
+	box-sizing: border-box;
+	border: none;
+	cursor: pointer;
+	display: inline-block;
+	width: 55px;
+	height: 100%;
+	background: #FFF;
+	border-left:1px solid #f0f0f0;
+	outline: none;
+	position: absolute;
+	right: 0;
+	top: 0;
+	transition: background 200ms cubic-bezier(0.2,0,0.4,1);
+}
+.searchBox-submit:hover{
+	background: #f0f0f0;
+}
+.searchBox-clear{
+	position: absolute;
+	right: 65px;
+	top: 50%;
+	margin-top: -9px;
+}
+.searchBox-clearIcon{
+	cursor: pointer;
+	transition: opacity 200ms cubic-bezier(0.2,0,0.4,1);
+}
+.searchBox-clearIcon:hover{
+	opacity: 0.5;
+}
