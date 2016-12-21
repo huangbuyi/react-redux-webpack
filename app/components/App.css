@@ -1,0 +1,30 @@
+.main{
+	position: relative;
+	margin:0 auto;
+	padding: 16px 14px 100px 14px;
+	display: block;
+	width: 1172px;
+	overflow: hidden;
+}
+.leftSide{
+	width: 180px;
+	float:left;
+}
+.specials{
+	display: inline-block;
+	padding:0 16px;
+	float:left;
+}
+.rightSide{
+	width: 300px;
+	height: 200px;
+	float:left;
+}
+
+.pastSpecialAll{
+	margin-top: 16px;	
+}
+
+.specialBoxList{
+	margin-top: 16px;
+}

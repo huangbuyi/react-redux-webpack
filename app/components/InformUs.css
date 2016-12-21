@@ -1,0 +1,16 @@
+.informUs{
+	widht: 300px;
+	padding: 22px 20px;	
+	align-items: center;
+	text-align: center;
+	background: #F5F5F5;
+}
+.informUs-tip{
+	margin-top: 14px;
+}
+.informUs-tip p{
+	font-size: 12px;
+	color: rgba(0,0,0,0.33);
+	text-align: center;
+}
+

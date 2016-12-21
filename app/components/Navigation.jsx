@@ -1,8 +1,58 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, IndexLink } from 'react-router'
 import './Navigation.css';
 
-class Navigation extends React.Component{
+const NavItem = ({ target, text, onClick }) => (
+	target == "/" ?
+		<li>
+			<IndexLink to={target} activeClassName={"active"}>
+				<div onClick={onClick} className="navItem">
+					{text}
+				</div>
+			</IndexLink>
+		</li>
+		:
+		<li>
+			<Link to={target} activeClassName={"active"}>
+				<div onClick={onClick} className="navItem">
+					{text}
+				</div>
+			</Link>
+		</li>
+	
+)
+
+
+
+const Navigation = ({ route, onClick, onMoreClick }) => {
+	let links = [
+					{target:"/", text:"本期"},
+					{target:"/project",text:"项目"},
+					{target:"/website",text:"网站"},
+					{target:"/source",text:"资源"},
+					{target:"/circle",text:"圈子"},
+					{target:"/book",text:"图书"}
+				];
+
+	return (
+		<div className="navigation">
+			<ul>
+				{links.map(link => 
+					<NavItem 
+					target={link.target}
+					key={link.target} {...link} 
+					onClick={() => onClick(link.target) } 
+					/>
+				)}
+			</ul>
+			<div onClick={onMoreClick} className="navMoreBtn">更多频道</div>
+		</div>
+	)
+}
+
+
+/*
+class Navigation2 extends React.Component{
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -34,7 +84,7 @@ class Navigation extends React.Component{
 		}
 
 		return (
-			<div className="navigation">
+			<div onClick={this.props.onBtnClick} className="navigation">
 				<ul className="navItem">
 					{navItems}
 				</ul>
@@ -42,6 +92,6 @@ class Navigation extends React.Component{
 		)
 		
 	}
-}
+}*/
 
 export default Navigation;
