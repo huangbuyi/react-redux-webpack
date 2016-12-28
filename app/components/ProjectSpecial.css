@@ -1,16 +1,11 @@
-.projectSpecial{
-	box-shadow: 0 1.5px 6px rgba(0,0,0,0.12),
-				0 1.5px 4px rgba(0,0,0,0.24);
-	width: 660px;
-	height: 360px;
-}
+
 .projectImage{
 	cursor: pointer;
 	position: relative;
 	float:left;
-	width: 480px;
+	width: 500px;
 	height: 360px;
-	background: #000;
+	background: #9e9e9e;
 }
 .projectAlt{
 	box-sizing: border-box;

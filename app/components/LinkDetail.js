@@ -39,7 +39,7 @@ var linkStyle = {
 
 
 
-class WebsiteDetail extends React.Component {
+class LinkDetail extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -53,50 +53,20 @@ class WebsiteDetail extends React.Component {
 	}
 
 	componentDidMount() {
-		this.fetchData()
+		this.props.fetchLink( this.props.params.id )
 	}
 
 	componentDidUpdate(prevProps, prevState) {
 		let oldId = prevProps.params.id
 		let newId = this.props.params.id 
 		if( newId !== oldId ){
-			this.fetchData()
-		}
-	}
-
-	fetchData () {
-		var data = websiteAll[this.props.params.id];
-		this.setState({data: data})
-		if( data.relative && Array.isArray(data.relative) ) {
-			var rel = [];
-			data.relative.map( (id) => {
-				rel.push({
-					title: websiteAll[id].title,
-					target: websiteAll[id].target
-				})
-			})
-			this.setState({relative: rel});
+			this.props.fetchLink( newId )
 		}
 	}
 
 	render () {
-		var {target,title,text} = this.state.data
-		var items = []
-
-		this.state.relative.map((r, i) =>{
-			items.push(
-				<li key={i}>
-					<p>{r.title}：
-						<a style={ linkStyle }
-							target="_blank" 
-							href={r.target}
-						>
-							{r.target}
-						</a>
-					</p>
-				</li>
-			)
-		})
+		var { linkDetail } = this.props
+		var link = linkDetail.link
 
 		return (
 			<div>
@@ -105,17 +75,13 @@ class WebsiteDetail extends React.Component {
 				</div>
 				<div style={ contStyle }>
 					<div style={ detailStyle }>
-						<h1 style={titleStyle}>{ title }</h1>
+						<h1 style={ titleStyle }>{ link.title }</h1>
 						<p style={ bodyStyle }>
 							网址：<a target="_blank" style={ linkStyle } 
-									href={ target }
-								  >{ target }</a>
+									href={ link.target }
+								  >{ link.target }</a>
 						</p>
-						<p style={ bodyStyle }>{ text }</p>
-						<h2 style={ subTitleStyle }>相关链接</h2>
-						<ul style={ bodyStyle }>
-							{items}
-						</ul>
+						<p style={ bodyStyle }>{ link.text }</p>
 					</div>
 				</div>
 			</div>
@@ -125,4 +91,4 @@ class WebsiteDetail extends React.Component {
 
 }
 
-export default WebsiteDetail
+export default LinkDetail

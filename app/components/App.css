@@ -1,18 +1,20 @@
 .main{
 	position: relative;
 	margin:0 auto;
-	padding: 16px 14px 100px 14px;
+	padding: 20px 14px 100px 14px;
 	display: block;
-	width: 1172px;
+	width: 1280px;
 	overflow: hidden;
 }
 .leftSide{
-	width: 180px;
+	width: 200px;
 	float:left;
 }
 .specials{
+	box-sizing: border-box;
 	display: inline-block;
 	padding:0 16px;
+	width: 742px;
 	float:left;
 }
 .rightSide{
@@ -24,7 +26,9 @@
 .pastSpecialAll{
 	margin-top: 16px;	
 }
-
+.projectBoxList{
+	margin-bottom: 26px;
+}
 .specialBoxList{
-	margin-top: 16px;
+	margin-bottom: 16px;
 }

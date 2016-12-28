@@ -152,7 +152,7 @@ var sourceAll = {
 		id: 974,
 		title: "Redux 121min官配课程",
 		target: "https://egghead.io/courses/getting-started-with-redux",
-		text: "官方文档阐述了 Redux 与 Flux 的区别和它所要解决的问题，不仅如此，还通过丰富的案例来讲解 Redux 的各种应用场景。",
+		text: "还配有课程笔记以及进阶课程。",
 		relative: [984,983,982,981]
 	}
 }
@@ -171,7 +171,7 @@ var circleAll = {
 var special = {
 	id: 12,
 	title: "React技术栈",
-	type: "网站"
+	type: "网站",
 	text: "专题囊括了 React 搭建大型网页应用的相关技术，但不含 React native 的相关内容。",
 	image: "",
 	alt: "",

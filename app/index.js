@@ -1,16 +1,18 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
-import App from './components/App'
+import AppRouter from './components/AppRouter'
 import reducer from './reducers/'
 import './index.css'
+import thunkModdleware from 'redux-thunk'
 
-const store = createStore(reducer)
+const store = createStore(reducer, applyMiddleware( thunkModdleware ))
 
 store.subscribe( () => {
 	console.log(store.getState())
 })
+
 
 // history数据持久化
 if(window.localStorage){
@@ -33,7 +35,7 @@ if(window.localStorage){
 
 render(
 	<Provider store={store}>
-		<App />
+		<AppRouter />
 	</Provider>,
 	document.getElementById('content')
 )
