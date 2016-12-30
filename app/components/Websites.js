@@ -7,22 +7,23 @@ import RaisedButton from './RaisedButton'
 class Websites extends React.Component {
 
 	componentWillUpdate(nextProps) {
-		var { websites, specials, fetchSpecial } = nextProps
+		var { oneCate, type, specials, fetchSpecial } = nextProps
 
 
-		websites.data && websites.data.map( web => {
+		oneCate.data && oneCate.data.map( web => {
 			if( !specials[web.id] ){
-				fetchSpecial(web.id)
+				fetchSpecial(type, web.id)
 			}
 		})
 	}
 
 	getMore () {
-		this.props.fetchSpecials('website', this.props.websites.data.length)
+		var { fetchSpecials, type, oneCate} = this.props
+		fetchSpecials(type, oneCate.data.length)
 	}
 
 	render () {
-		var { websites, specials } = this.props
+		var { oneCate, specials, type } = this.props
 		var that = this
 		function getList() {
 			var list = []
@@ -31,7 +32,7 @@ class Websites extends React.Component {
 			Object.keys(specials).reverse().map( id => {
 				list.push(
 					<div key={id}>
-						<SpecialBox cate='website' special={specials[id].data}/>
+						<SpecialBox cate={type} special={specials[id].data}/>
 					</div>
 				)
 			})
@@ -39,9 +40,9 @@ class Websites extends React.Component {
 		}
 
 		function getButton() {
-			if( websites.isNoMore ) {
+			if( oneCate.isNoMore ) {
 				return <RaisedButton disable={true}>没有嘞</RaisedButton>
-			} else if ( websites.isFetching ) {
+			} else if ( oneCate.isFetching ) {
 				return <RaisedButton color='#65B165'>...加载呦</RaisedButton>
 			}
 			

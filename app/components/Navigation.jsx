@@ -31,7 +31,8 @@ const Navigation = ({ route, onClick, onMoreClick }) => {
 					{target:"/website",text:"网站"},
 					{target:"/source",text:"资源"},
 					{target:"/circle",text:"圈子"},
-					{target:"/book",text:"图书"}
+					{target:"/book",text:"图书"},
+					{target:"/other",text:"其它"}
 				];
 
 	return (

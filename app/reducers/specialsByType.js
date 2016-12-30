@@ -16,8 +16,7 @@ function specials(state = {}, action) {
 	}
 }
 
-function specialsById(state = {
-}, action) {
+function specialsById(state = {}, action) {
 	switch (action.type) {
 		case REQUEST_SPECIAL:
 		case RECEIVE_SPECIAL:
@@ -29,7 +28,22 @@ function specialsById(state = {
 	}
 }
 
-export default specialsById
+function specialsByType(state = {
+	website: {},
+	other: {}
+}, action) {
+	switch (action.type) {
+		case REQUEST_SPECIAL:
+		case RECEIVE_SPECIAL:
+			return Object.assign({}, state, {
+				[action.cate]: specialsById(state[action.cate], action)
+			})
+		default:
+			return state
+	}
+}
+
+export default specialsByType
 
 // todo: 重新设计树的格式，分开获取不同类型 special 数据。
 // todo: 先查查相关教程。

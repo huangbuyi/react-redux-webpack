@@ -109,29 +109,31 @@ export function fetchLink (id) {
 
 // 请求 special 数据
 export const REQUEST_SPECIAL = 'REQUEST_SPECIAL'
-function requestSpecial (id) {
+function requestSpecial (cate, id) {
 	return {
 		type: REQUEST_SPECIAL,
-		special_id: id 
+		special_id: id,
+		cate: cate
 	}
 }
 
 export const RECEIVE_SPECIAL = 'RECEIVE_SPECIAL'
-function receiveSpecial (id, json) {
+function receiveSpecial (cate, id, json) {
 	return {
 		type: RECEIVE_SPECIAL,
 		special_id: id,
-		json: json
+		json: json,
+		cate: cate
 	}
 }
 
-export function fetchSpecial (id) {
+export function fetchSpecial (cate, id) {
 	return function (dispatch) {
-		dispatch(requestSpecial(id))
+		dispatch(requestSpecial(cate, id))
 
 		return fetch('http://localhost/laravel/public/specials/' + id)
 			.then( response => response.json() )
-			.then ( json => dispatch( receiveSpecial(id, json) ))
+			.then ( json => dispatch( receiveSpecial(cate, id, json) ))
 			.catch( error => { console.log(error) })
 	}
 }

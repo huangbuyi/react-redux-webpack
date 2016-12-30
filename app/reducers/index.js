@@ -4,7 +4,7 @@ import navRouter from './navRouter'
 import history from './history'
 import asynState from './asynState'
 import specialsByCate from './specialsByCate'
-import specialsById from './specialsById'
+import specialsByType from './specialsByType'
 import linkDetail from './link'
 
 const myApp = combineReducers({
@@ -13,7 +13,7 @@ const myApp = combineReducers({
 	history,
 	asynState,
 	specialsByCate,
-	specialsById,
+	specialsByType,
 	linkDetail
 })
 

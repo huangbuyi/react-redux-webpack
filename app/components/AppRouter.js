@@ -3,7 +3,7 @@ import AppCon from '../containers/AppCon'
 import LinkDetailCon from '../containers/LinkDetailCon'
 
 import { Projects, Websites } from './Projects'
-import WebsitesCon from '../containers/WebsitesCon'
+import { WebsitesCon, SourceCon, CircleCon, BooksCon, OtherCon } from '../containers/WebsitesCon'
 import MyEditor from './MyEditor'
 import Index from '../containers/IndexCon'
 import { Router, Route, IndexRoute, Link, hashHistory, browserHistory } from 'react-router'
@@ -28,6 +28,8 @@ const AppRouter = () => (
 			<Route path="/circle" component={LinkDetailCon} />
 			<Route path="/book" component={MyEditor} />
 			<Route path="/suggest" component={LinkDetailCon} />
+			<Route path="/other" component={OtherCon} />
+
 
 			<Route path="/website/:id" component={LinkDetailCon} />
 			<Route path="/project/:id" component={LinkDetailCon} />
