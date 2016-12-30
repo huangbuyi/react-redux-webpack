@@ -20,7 +20,7 @@ function weekly(state = {
 			})
 		case RECEIVE_WEEKLY:
 			var { specials, topics, ...props } = action.weekly
-			var order = ['topic', 'website', 'source', 'circle', 'other']
+			var order = ['topic', 'website', 'source', 'circle', 'book', 'other']
 
 			var list = {};
 			if(topics){

@@ -29,7 +29,11 @@ function specialsById(state = {}, action) {
 }
 
 function specialsByType(state = {
+	topic: {},
 	website: {},
+	source: {},
+	circle: {},
+	book: {},
 	other: {}
 }, action) {
 	switch (action.type) {

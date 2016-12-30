@@ -21,8 +21,7 @@ function specials(state = {
 	}
 }
 
-function specialsByCate(state = {
-}, action) {
+function specialsByCate(state = {}, action) {
 	switch (action.type) {
 		case REQUEST_SPECIALS:
 		case RECEIVE_SPECIALS:

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { fetchSpecial, fetchSpecials } from '../actions'
-import Websites from '../components/Websites'
+import CateTemplate from '../components/CateTemplate'
 
 // const mapStateToProps2 = (state) => ({
 // 	oneCate: state.specialsByCate.website,
@@ -32,13 +32,14 @@ function specialsGenerator( type ) {
 		fetchSpecials
 	}
 
-	return connect(mapStateToProps, mapDispatchToProps)(Websites)
+	return connect(mapStateToProps, mapDispatchToProps)(CateTemplate)
 }
 
+const TopicCon = specialsGenerator('topic')
 const WebsitesCon = specialsGenerator('website')
-const SourceCon = specialsGenerator('website')
-const CircleCon = specialsGenerator('website')
-const BooksCon = specialsGenerator('website')
+const SourceCon = specialsGenerator('source')
+const CircleCon = specialsGenerator('circle')
+const BooksCon = specialsGenerator('book')
 const OtherCon = specialsGenerator('other')
 
-export { WebsitesCon, SourceCon, CircleCon, BooksCon, OtherCon }
+export { TopicCon, WebsitesCon, SourceCon, CircleCon, BooksCon, OtherCon }

@@ -2,11 +2,11 @@ import React from 'react'
 import AppCon from '../containers/AppCon'
 import LinkDetailCon from '../containers/LinkDetailCon'
 
-import { Projects, Websites } from './Projects'
-import { WebsitesCon, SourceCon, CircleCon, BooksCon, OtherCon } from '../containers/WebsitesCon'
+import { TopicCon, WebsitesCon, SourceCon, CircleCon, BooksCon, OtherCon } from '../containers/CateCon'
 import MyEditor from './MyEditor'
 import Index from '../containers/IndexCon'
 import { Router, Route, IndexRoute, Link, hashHistory, browserHistory } from 'react-router'
+import Loading from './Loading'
 
 const Past = ({ children }) => (
 	<div>
@@ -23,12 +23,12 @@ const AppRouter = () => (
 			<Route path="/past" component={Past} />
 
 			<Route path="/website" component={WebsitesCon} />
-			<Route path="/project" component={Projects} />
-			<Route path="/source" component={LinkDetailCon} />
-			<Route path="/circle" component={LinkDetailCon} />
-			<Route path="/book" component={MyEditor} />
-			<Route path="/suggest" component={LinkDetailCon} />
+			<Route path="/project" component={TopicCon} />
+			<Route path="/source" component={SourceCon} />
+			<Route path="/circle" component={CircleCon} />
+			<Route path="/book" component={BooksCon} />
 			<Route path="/other" component={OtherCon} />
+			<Route path="/suggest" component={Loading} />
 
 
 			<Route path="/website/:id" component={LinkDetailCon} />

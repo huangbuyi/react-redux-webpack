@@ -1,5 +1,5 @@
 import React from 'react'
-import './ProjectSpecial.css'
+import './TopicSpecial.css'
 
 const $shadow_1 = '0 1.5px 6px rgba(0,0,0,0.12), 0 1.5px 4px rgba(0,0,0,0.24)';
 const $width = '710px';
@@ -20,27 +20,27 @@ const imageStyle = {
 class ProjectSpecial extends React.Component {
 
 	render () {
-		var project = Object.assign({
+		var topic = Object.assign({
 			title: '',
 			target: '',
 			image: '',
 			alt: '',
 			text: ''
-		}, this.props.project) 
+		}, this.props.topic) 
 		
 		return (
 			<div style={ style }>
-				<a target="_blank" href={project.target}>
+				<a target="_blank" href={topic.target}>
 					<div className="projectImage">
-						<img style={ imageStyle } src={ project.image }/>
-						<div className="projectAlt" alt={project.alt}>
-							{project.alt}
+						<img style={ imageStyle } src={ topic.image }/>
+						<div className="projectAlt" alt={topic.alt}>
+							{topic.alt}
 						</div>
 					</div>
 				</a>
 				<div className="projectIntro">
-					<h1>{project.title}</h1>
-					<p>{project.text}</p>
+					<h1>{topic.title}</h1>
+					<p>{topic.text}</p>
 				</div>
 			</div>
 		)
@@ -48,7 +48,4 @@ class ProjectSpecial extends React.Component {
 }
 
 
-ProjectSpecial.defaultProps = {
-	project: {}
-}
 export default ProjectSpecial

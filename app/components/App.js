@@ -13,6 +13,9 @@ class App extends React.Component {
 		this.props.fetchWeekly();
 		this.props.fetchSpecials('website');
 		this.props.fetchSpecials('topic');
+		this.props.fetchSpecials('source');
+		this.props.fetchSpecials('circle');
+		this.props.fetchSpecials('book');
 		this.props.fetchSpecials('other');
 	}
 

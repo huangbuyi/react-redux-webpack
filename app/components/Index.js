@@ -1,13 +1,12 @@
 import React from 'react'
-import ProjectSpecial from './ProjectSpecial'
+import TopicSpecial from './TopicSpecial'
 import PeriodDirectory from './PeriodDirectory'
 import PastSpecial from './PastSpecial'
 import InformUs from './InformUs'
 import SpecialBoxCon from '../containers/SpecialBoxCon'
 import './App.css'
-import { periods } from "../test_data/past"
+import Loading from './Loading'
 
-var period = periods["12"]
 
 
 class Index extends React.Component {
@@ -29,8 +28,8 @@ class Index extends React.Component {
 	}
 
 	render () {
-		var { weekly, specialList } = this.props;
-		var order = ['topic', 'website', 'source', 'circle', 'other']
+		var { weekly, specialList, isFetching } = this.props;
+		var order = ['topic', 'website', 'source', 'circle', 'book', 'other']
 		var list = weekly.list;
 
 		function getSpecials () {
@@ -44,7 +43,7 @@ class Index extends React.Component {
 				? list[type].map( topic => {
 					sList.push(
 						<div key={ topic.id } className="projectBoxList">
-							<ProjectSpecial project={topic} />
+							<TopicSpecial topic={topic} />
 						</div>
 					)
 				})
@@ -77,17 +76,25 @@ class Index extends React.Component {
 
 		return (
 			<div>
-				<div className="leftSide">
-					<PeriodDirectory order={order} period={ weekly }/>
-				</div>
-				<div className="specials">
-					{ getSpecials() }
-				</div>
-				<div className="rightSide">
-					<InformUs />
-					{ getSpecialsList() }
-				</div>		
-			</div>		
+				{ isFetching ? 
+					<div>
+						<Loading />
+					</div>
+					:
+					<div>
+						<div className="leftSide">
+							<PeriodDirectory order={order} period={ weekly }/>
+						</div>
+						<div className="specials">
+							{ getSpecials() }
+						</div>
+						<div className="rightSide">
+							<InformUs />
+							{ getSpecialsList() }
+						</div>		
+					</div>	
+				}
+			</div>	
 		)
 	}
 }
