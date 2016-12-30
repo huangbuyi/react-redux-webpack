@@ -67,11 +67,11 @@ function receiveSpecials (type, json) {
 	}
 }
 
-export function fetchSpecials (type) {
+export function fetchSpecials (type, start = 0) {
 	return function (dispatch) {
 		dispatch(requestSpecials(type))
 
-		return fetch('http://localhost/laravel/public/specials?type=' + type)
+		return fetch('http://localhost/laravel/public/specials?limit=5&type=' + type + '&start=' + start)
 			.then( response => response.json() )
 			.then( json => dispatch( receiveSpecials(type, json) ) )
 			.catch( error => { console.log(error) })
@@ -103,6 +103,35 @@ export function fetchLink (id) {
 		return fetch('http://localhost/laravel/public/links/' + id)
 			.then( response => response.json() )
 			.then ( json => dispatch( receiveLink(id, json) ))
+			.catch( error => { console.log(error) })
+	}
+}
+
+// 请求 special 数据
+export const REQUEST_SPECIAL = 'REQUEST_SPECIAL'
+function requestSpecial (id) {
+	return {
+		type: REQUEST_SPECIAL,
+		special_id: id 
+	}
+}
+
+export const RECEIVE_SPECIAL = 'RECEIVE_SPECIAL'
+function receiveSpecial (id, json) {
+	return {
+		type: RECEIVE_SPECIAL,
+		special_id: id,
+		json: json
+	}
+}
+
+export function fetchSpecial (id) {
+	return function (dispatch) {
+		dispatch(requestSpecial(id))
+
+		return fetch('http://localhost/laravel/public/specials/' + id)
+			.then( response => response.json() )
+			.then ( json => dispatch( receiveSpecial(id, json) ))
 			.catch( error => { console.log(error) })
 	}
 }

@@ -1,6 +1,5 @@
 import React from 'react'
 import GoBack from './GoBack'
-import { websiteAll } from '../test_data/past'
 
 var contStyle = {
 	padding: "0 16px",

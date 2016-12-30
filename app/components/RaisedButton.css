@@ -12,7 +12,7 @@
 				background 275ms cubic-bezier(0.4, 0.0, 0.2, 1) 0ms;
 }
 .myRaisedButton:hover{
-	background: rgba(33,150,243,0.75);
+	filter:brightness(1.05);
 }
 .myRaisedButton:active{
 	box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 12px, rgba(0, 0, 0, 0.23) 0px 3px 12px;

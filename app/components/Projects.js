@@ -21,12 +21,12 @@ const Projects = () => (
 	</div>
 )
 
+// 复用
 const Websites = () => (
 	<div className="pastSpecial-container">
 		{
 			Object.keys(websites).reverse().map( (item) => (
 				<div key={item} className="pastSpecial-item">
-					<span className="pastSpecial-date">| {websites[item].date + "   第" + websites[item].period + "期"} |</span>
 					<SpecialBox special={websites[item]} />
 				</div>
 			))

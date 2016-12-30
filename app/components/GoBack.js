@@ -25,7 +25,7 @@ var tipTopStyle = {
 
 const ReturnBtn = ({ onClick }) => (
 	<div style={style}>
-		<RaisedButton onClick={onClick} color="#CC9933" text={btnText}/>
+		<RaisedButton onClick={onClick} color="#CC9933">返回</RaisedButton>
 		<div style={tipTopStyle}>
 			<p style={tipStyle}>{text}</p>
 		</div>

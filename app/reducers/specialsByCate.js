@@ -1,6 +1,10 @@
 import { REQUEST_SPECIALS, RECEIVE_SPECIALS } from '../actions'
 
-function specials(state = {}, action) {
+function specials(state = {
+	isFetching: false,
+	data: [],
+	isNoMore: false
+}, action) {
 	switch (action.type) {
 		case REQUEST_SPECIALS:
 			return Object.assign({}, state, {
@@ -9,14 +13,16 @@ function specials(state = {}, action) {
 		case RECEIVE_SPECIALS:
 			return Object.assign({}, { 
 				isFetching: false,
-				data: action.json
+				data: state.data.concat(action.json),
+				isNoMore: action.json.length == 0 ? true : false
 			})
 		default:
 			return state
 	}
 }
 
-function specialsByCate(state = {}, action) {
+function specialsByCate(state = {
+}, action) {
 	switch (action.type) {
 		case REQUEST_SPECIALS:
 		case RECEIVE_SPECIALS:

@@ -9,7 +9,7 @@ var btnText = "有话想说"
 const InformUs = () => (
 	<div className="informUs">
 		<Link to="/suggest">
-			<RaisedButton text={btnText} />
+			<RaisedButton>有话想说</RaisedButton>
 		</Link>
 		<div className="informUs-tip">
 			<p>{text}</p>

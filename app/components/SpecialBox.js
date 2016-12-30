@@ -103,7 +103,6 @@ const subheadPStyle = {
 	color: 'rgba(255,255,255,0.5)',
 	position: 'relative',
 	padding: '0 12px',
-	width: itemWidth,
 	wordWrap:'break-word'
 }
 
@@ -128,7 +127,6 @@ const itemPStyle = {
 	fontSize: '12px',
 	lineHeight: '20px',
 	color: '#333',
-	width: itemWidth,
 	wordWrap:'break-word'
 }
 
