@@ -15,7 +15,7 @@
 	margin: 0 auto;
 	height: 100%;
 }
-.navigation li{
+.navLi{
 	display: inline-block;
 	height: 100%;
 }
@@ -42,12 +42,15 @@
 	transition: border-color 325ms cubic-bezier(0.4, 0.0, 0.2, 1) 0ms;
 }
 .navMoreBtn{
-	height: 100%;
+	min-width: 270px;
+	height: 53px;
 	display: inline-block;
 	position: absolute;
 	cursor: pointer;
 	top: 0;
-	right: 20px;
+	right: 16px;
 	line-height:  53px;
-	font-size: 13px;
+	font-size: 14px;
+	color: #2196F3;
+	text-align: left;
 }

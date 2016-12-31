@@ -7,7 +7,6 @@ import SpecialBoxCon from '../containers/SpecialBoxCon'
 import './Index.css'
 import Loading from './Loading'
 
-
 class Index extends React.Component {
 	constructor(props) {
 		super(props);

@@ -1,24 +1,25 @@
 import React from 'react';
+import PastWeekly from './PastWeekly'
 import { Link, IndexLink } from 'react-router'
 import './Navigation.css';
 
 const NavItem = ({ target, text, onClick }) => (
-	target == "/" ?
-		<li>
+	<li className='navLi'>
+	{
+		target == "/" ?	
 			<IndexLink to={target} activeClassName={"active"}>
 				<div onClick={onClick} className="navItem">
 					{text}
 				</div>
 			</IndexLink>
-		</li>
-		:
-		<li>
+			:
 			<Link to={target} activeClassName={"active"}>
 				<div onClick={onClick} className="navItem">
 					{text}
 				</div>
 			</Link>
-		</li>
+	}
+	</li>
 	
 )
 
@@ -46,7 +47,9 @@ const Navigation = ({ route, onClick, onMoreClick }) => {
 					/>
 				)}
 			</ul>
-			<div onClick={onMoreClick} className="navMoreBtn">更多频道</div>
+			<div className="navMoreBtn">
+				<PastWeekly />
+			</div>
 		</div>
 	)
 }

@@ -17,6 +17,8 @@
 	overflow: hidden;
 	text-align: left;
 	box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+	z-index: 999;
+	overflow: hidden;
 }
 .selectBox-options ul{
 	width: 100%;
@@ -31,7 +33,7 @@
 	font-size: 14px;
 	color: rgba(0,0,0,0.87);
 	transition: background 275ms cubic-bezier(0.4, 0.0, 0.2, 1);
-	overflow-x: hidden;
+	overflow: hidden;
 	text-overflow: ellipsis;
 }
 .selectBox-options li.selected{
@@ -43,12 +45,7 @@
 
 .selectBox-options-open{
 	padding: 15px 0;
-	left:-8px;
-	top:-8px;
 	opacity: 1;
-	width: 180px;
-	/* height: 150px; */
-	z-index: 999;
 	transition: width 275ms cubic-bezier(0.4, 0.0, 0.2, 1) 0ms,
 				height 305ms cubic-bezier(0.4, 0.0, 0.2, 1) 35ms,
 				left 275ms cubic-bezier(0.4, 0.0, 0.2, 1) 0ms,
@@ -59,10 +56,6 @@
 
 .selectBox-options-close{
 	padding: 0;
-	left: 50%;
-	top: 50%;
-	width: 0;
-	/* height: 0; */
 	opacity: 1;
 	transition: width 305ms cubic-bezier(0.4, 0.0, 0.2, 1) 35ms,
 				height 275ms cubic-bezier(0.4, 0.0, 0.2, 1) 0ms,
@@ -72,6 +65,7 @@
 				padding 275ms cubic-bezier(0.4, 0.0, 0.2, 1) 0ms;
 }
 .selectBox-substrate{
+	cursor: default;
 	position: fixed;
 	background: red;
 	left: 0;
