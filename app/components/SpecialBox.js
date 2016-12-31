@@ -1,4 +1,5 @@
 import React from 'react'
+import Loading from './Loading'
 import { Link } from 'react-router'
 import './specialBox.css'
 
@@ -10,7 +11,7 @@ class SpecialBox extends React.Component {
 	}
 
 	render () {
-		var {cate, onClick} = this.props;
+		var {cate, isFetching, onClick} = this.props;
 		var special = Object.assign({
 			id: 0,
 			title: '',
@@ -26,9 +27,14 @@ class SpecialBox extends React.Component {
 		var maxLength = 90
 
 		return (
+			isFetching ?
+			<div>
+				<Loading />
+			</div>
+			:
 			<div style={ boxStyle }>
 				<div className="specialBox-title">
-					<Link to={ cate }>
+					<Link to={ '/specials/' + special.id }>
 						<div>
 							<img src={ special.image } />
 							<div className="blackFilter"></div>
@@ -78,6 +84,10 @@ const width = '720px'
 const accentColor = '#2196F3'
 const colorTransition = 'color 200ms cubic-bezier(0.4, 0.0, 0.2, 1)'
 const itemWidth = '170px'
+
+const loadingStyle = {
+	width: width
+}
 
 const boxStyle = {
 	cursor: "default",

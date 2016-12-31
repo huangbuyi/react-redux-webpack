@@ -1,5 +1,6 @@
 import React from 'react'
 import './TopicSpecial.css'
+import Loading from './Loading'
 
 const $shadow_1 = '0 1.5px 6px rgba(0,0,0,0.12), 0 1.5px 4px rgba(0,0,0,0.24)';
 const $width = '710px';
@@ -17,7 +18,7 @@ const imageStyle = {
 	height: '100%'
 }
 
-class ProjectSpecial extends React.Component {
+class TopicSpecial extends React.Component {
 
 	render () {
 		var topic = Object.assign({
@@ -29,6 +30,11 @@ class ProjectSpecial extends React.Component {
 		}, this.props.topic) 
 		
 		return (
+			this.props.isFetching ?
+			<div>
+				<Loading />
+			</div>
+			:
 			<div style={ style }>
 				<a target="_blank" href={topic.target}>
 					<div className="projectImage">
@@ -48,4 +54,4 @@ class ProjectSpecial extends React.Component {
 }
 
 
-export default ProjectSpecial
+export default TopicSpecial

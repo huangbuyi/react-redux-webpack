@@ -1,8 +1,14 @@
 import React from 'react'
 import './loading.css'
 
+const style = {
+	width: '60px',
+	height: '60px',
+	margin: '0 auto'
+}
+
 const Loading = () => (
-	<div>
+	<div style={style}>
 		<div className="row clearfix">
 			<div className="square one"></div> 
 			<div className="square two"></div>

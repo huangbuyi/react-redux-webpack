@@ -4,6 +4,7 @@ import SpecialBox from './SpecialBox'
 import TopicSpecial from './TopicSpecial'
 import GoTopButton from './GoTopButton'
 import RaisedButton from './RaisedButton'
+import Loading from './Loading'
 
 // 专题类型模板组件
 class CateTemplate extends React.Component {
@@ -30,7 +31,7 @@ class CateTemplate extends React.Component {
 	}
 
 	render () {
-		var { oneCate, specials, type } = this.props
+		var { isFetching, oneCate, specials, type } = this.props
 		var that = this
 
 		// get specials list JSX
@@ -40,10 +41,10 @@ class CateTemplate extends React.Component {
 			// 将新添加的数据排在后篇
 			Object.keys(specials).reverse().map( id => {
 				list.push(
-					<div key={id}>
+					<div style={ itemStyle } key={id}>
 						{ type !== 'topic' ?
-							<SpecialBox cate={type} special={specials[id].data} /> :
-							<TopicSpecial cate={type} topic={specials[id].data} /> }
+							<SpecialBox cate={type} isFetching={specials[id].isFetching} special={specials[id].data} /> :
+							<TopicSpecial cate={type} isFetching={specials[id].isFetching} topic={specials[id].data} /> }
 					</div>
 				)
 			})
@@ -63,12 +64,49 @@ class CateTemplate extends React.Component {
 
 		return (
 			<div>
-				{ getList() }
-				{ getButton() }
-				<GoTopButton />
+				<div style={ goBackStyle }>
+					<GoBack router={ this.props.router }/>
+				</div>
+				<div style={ mainStyle }>	
+					{ isFetching ? 
+						<div>
+							<Loading />
+						</div>
+						:
+						<div>
+							{ getList() }
+							<div style={ moreBtnStyle }>
+								{ getButton() }
+							</div>
+							<GoTopButton />
+						</div>
+					}
+				</div>
 			</div>
+				
 		)
 	}
+}
+
+const goBackStyle = {
+	width: '200px',
+	float: 'left'
+}
+const mainStyle = {
+	boxSizing: 'border-box',
+	display: 'inline-block',
+	padding:'0 16px',
+	width: '742px',
+	float: 'left'
+}
+
+const itemStyle = {
+	marginBottom: '16px'
+}
+
+const moreBtnStyle = {
+	marginRight: '26px',
+	display: 'inline-block'
 }
 
 export default CateTemplate

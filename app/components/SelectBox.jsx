@@ -39,7 +39,9 @@ class SelectBox extends React.Component{
 		return (
 			<div className="selectBox">
 				<div onClick={this.handleOpen.bind(this)} className="selectBox-btn">{this.props.options[this.state.value]}</div>
-				<div className={clsName}>
+				<div style={{ 
+					height: this.state.isOpen ? items.length * 30 + 'px' : 0
+				}} className={clsName}>
 					<ul onClick={this.handleClick.bind(this)}>
 						{items}
 					</ul>

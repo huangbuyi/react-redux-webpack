@@ -1,37 +1,38 @@
 import React from 'react'
 import GoBack from './GoBack'
+import Loading from './Loading'
 
-var contStyle = {
+const contStyle = {
 	padding: "0 16px",
 	float: "left",
 	display: "inline-block"
 }
-var detailStyle = {
+const detailStyle = {
 	boxSizeing: "border-box",
 	padding: "8px 20px 100px 20px",
 	width: "660px",
 	background: "#F5F5F5"
 }
-var goBackStyle = {
+const goBackStyle = {
 	width: "200px",
 	float: "left"
 }
-var titleStyle = {
+const titleStyle = {
 	fontSize: "32px",
 	color: "rgba(0,0,0,0.54)"
 }
-var subTitleStyle = {
+const subTitleStyle = {
 	marginTop: "42px",
 	fontSize: "24px",
 	color: "rgba(0,0,0,0.54)",
 	fontWeight: "bold"
 }
-var bodyStyle = {
+const bodyStyle = {
 	marginTop: "18px",
 	fontSize: "13px",
 	color: "rgba(0,0,0,0.87)"
 }
-var linkStyle = {
+const linkStyle = {
 	fontSize: "13px",
 	color: "#2196F3"
 }
@@ -56,8 +57,8 @@ class LinkDetail extends React.Component {
 	}
 
 	componentDidUpdate(prevProps, prevState) {
-		let oldId = prevProps.params.id
-		let newId = this.props.params.id 
+		var oldId = prevProps.params.id
+		var newId = this.props.params.id 
 		if( newId !== oldId ){
 			this.props.fetchLink( newId )
 		}
@@ -68,20 +69,27 @@ class LinkDetail extends React.Component {
 		var link = linkDetail.link
 
 		return (
+
 			<div>
 				<div style={ goBackStyle }>
 					<GoBack router={ this.props.router }/>
 				</div>
 				<div style={ contStyle }>
-					<div style={ detailStyle }>
-						<h1 style={ titleStyle }>{ link.title }</h1>
-						<p style={ bodyStyle }>
-							网址：<a target="_blank" style={ linkStyle } 
-									href={ link.target }
-								  >{ link.target }</a>
-						</p>
-						<p style={ bodyStyle }>{ link.text }</p>
-					</div>
+					{ linkDetail.isFetching ?
+						<div>
+							<Loading />
+						</div>
+						:
+						<div style={ detailStyle }>
+							<h1 style={ titleStyle }>{ link.title }</h1>
+							<p style={ bodyStyle }>
+								网址：<a target="_blank" style={ linkStyle } 
+										href={ link.target }
+									  >{ link.target }</a>
+							</p>
+							<p style={ bodyStyle }>{ link.text }</p>
+						</div>
+					}
 				</div>
 			</div>
 			

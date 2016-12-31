@@ -47,7 +47,7 @@
 	top:-8px;
 	opacity: 1;
 	width: 180px;
-	height: 150px;
+	/* height: 150px; */
 	z-index: 999;
 	transition: width 275ms cubic-bezier(0.4, 0.0, 0.2, 1) 0ms,
 				height 305ms cubic-bezier(0.4, 0.0, 0.2, 1) 35ms,
@@ -59,10 +59,10 @@
 
 .selectBox-options-close{
 	padding: 0;
-	left:0;
-	top: 0;
+	left: 50%;
+	top: 50%;
 	width: 0;
-	height: 0;
+	/* height: 0; */
 	opacity: 1;
 	transition: width 305ms cubic-bezier(0.4, 0.0, 0.2, 1) 35ms,
 				height 275ms cubic-bezier(0.4, 0.0, 0.2, 1) 0ms,

@@ -22,6 +22,7 @@ import CateTemplate from '../components/CateTemplate'
 // 组件生成器
 function specialsGenerator( type ) {
 	const mapStateToProps = (state) => ({
+		isFetching: state.asynState.isFetching,
 		oneCate: state.specialsByCate[type],
 		specials: state.specialsByType[type],
 		type: type

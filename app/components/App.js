@@ -5,7 +5,6 @@ import React from 'react'
 import Header from './Header.jsx'
 import Navigation from '../containers/NavigationCon'
 import SideDrawer from '../containers/SideDrawerCon'
-import './App.css'
 
 class App extends React.Component {
 

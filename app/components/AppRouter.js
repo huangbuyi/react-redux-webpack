@@ -7,6 +7,9 @@ import MyEditor from './MyEditor'
 import Index from '../containers/IndexCon'
 import { Router, Route, IndexRoute, Link, hashHistory, browserHistory } from 'react-router'
 import Loading from './Loading'
+import SpecialDetailCon from '../containers/SpecialDetailCon'
+
+import PastWeekly from './PastWeekly'
 
 const Past = ({ children }) => (
 	<div>
@@ -37,6 +40,10 @@ const AppRouter = () => (
 			<Route path="/circle/:id" component={LinkDetailCon} />
 			<Route path="/book/:id" component={LinkDetailCon} />
 			<Route path="/other/:id" component={LinkDetailCon} />
+
+			<Route path="/specials/:id" component={SpecialDetailCon} />
+			
+			<Route path="/test" component={PastWeekly} />
 		</Route>
 	</Router>
 )
@@ -44,3 +51,4 @@ const AppRouter = () => (
 export default AppRouter
 
 // todo: 添加book类
+// todo: 修改名称

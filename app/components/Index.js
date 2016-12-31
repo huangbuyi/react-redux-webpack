@@ -4,9 +4,8 @@ import PeriodDirectory from './PeriodDirectory'
 import PastSpecial from './PastSpecial'
 import InformUs from './InformUs'
 import SpecialBoxCon from '../containers/SpecialBoxCon'
-import './App.css'
+import './Index.css'
 import Loading from './Loading'
-
 
 
 class Index extends React.Component {
@@ -75,26 +74,23 @@ class Index extends React.Component {
 		}
 
 		return (
-			<div>
-				{ isFetching ? 
-					<div>
-						<Loading />
+ 			isFetching ? 
+				<div>
+					<Loading />
+				</div>
+				:
+				<div>
+					<div className="leftSide">
+						<PeriodDirectory order={order} period={ weekly }/>
 					</div>
-					:
-					<div>
-						<div className="leftSide">
-							<PeriodDirectory order={order} period={ weekly }/>
-						</div>
-						<div className="specials">
-							{ getSpecials() }
-						</div>
-						<div className="rightSide">
-							<InformUs />
-							{ getSpecialsList() }
-						</div>		
-					</div>	
-				}
-			</div>	
+					<div className="specials">
+						{ getSpecials() }
+					</div>
+					<div className="rightSide">
+						<InformUs />
+						{ getSpecialsList() }
+					</div>		
+				</div>					
 		)
 	}
 }

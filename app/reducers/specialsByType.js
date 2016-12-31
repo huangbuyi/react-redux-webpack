@@ -34,7 +34,8 @@ function specialsByType(state = {
 	source: {},
 	circle: {},
 	book: {},
-	other: {}
+	other: {},
+	detail: {}
 }, action) {
 	switch (action.type) {
 		case REQUEST_SPECIAL:
