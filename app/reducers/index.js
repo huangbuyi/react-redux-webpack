@@ -6,6 +6,8 @@ import asynState from './asynState'
 import specialsByCate from './specialsByCate'
 import specialsByType from './specialsByType'
 import linkDetail from './link'
+import weeklys from './weeklys'
+import weekly from './weekly'
 
 const myApp = combineReducers({
 	sideDrawerVisibility,
@@ -14,7 +16,9 @@ const myApp = combineReducers({
 	asynState,
 	specialsByCate,
 	specialsByType,
-	linkDetail
+	linkDetail,
+	weeklys,
+	weekly
 })
 
 export default myApp

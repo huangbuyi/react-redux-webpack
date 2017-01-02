@@ -6,6 +6,7 @@ import InformUs from './InformUs'
 import SpecialBoxCon from '../containers/SpecialBoxCon'
 import './Index.css'
 import Loading from './Loading'
+import GoTopButton from './GoTopButton'
 
 class Index extends React.Component {
 	constructor(props) {
@@ -19,7 +20,8 @@ class Index extends React.Component {
 
 	shouldComponentUpdate(nextProps, nextState) {
 		if(this.props.weekly === nextProps.weekly 
-			&& this.props.specialList === nextProps.specialList){
+			&& this.props.specialList === nextProps.specialList
+			&& this.props.isFetching === nextProps.isFetching){
 			return false
 		}
 		return true
@@ -29,6 +31,7 @@ class Index extends React.Component {
 		var { weekly, specialList, isFetching } = this.props;
 		var order = ['topic', 'website', 'source', 'circle', 'book', 'other']
 		var list = weekly.list;
+
 
 		function getSpecials () {
 			var sList = [];
@@ -84,6 +87,7 @@ class Index extends React.Component {
 					</div>
 					<div className="specials">
 						{ getSpecials() }
+						<GoTopButton />
 					</div>
 					<div className="rightSide">
 						<InformUs />

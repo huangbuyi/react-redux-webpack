@@ -25,7 +25,7 @@ class SelectBox extends React.Component{
 	}
 	render (){
 		var items = []
-		var { options, width, left, top } = this.props
+		var { options, width, left, top, fixTxt } = this.props
 		width = width ? width + 'px': '180px'
 		left = left ? left + 'px': '-8px'
 		top = top ? top + 'px' : '-8px'
@@ -39,11 +39,12 @@ class SelectBox extends React.Component{
 
 		var height = items.length * 30 + 'px'
 		var clsName = "selectBox-options" + (this.state.isOpen ? " selectBox-options-open": " selectBox-options-close");
-		var display = this.state.isOpen ? "block" : "none"; 
 
 		return (
 			<div className="selectBox">
-				<div onClick={this.handleOpen.bind(this)} className="selectBox-btn">{this.props.options[this.state.value]}</div>
+				<div onClick={this.handleOpen.bind(this)} className="selectBox-btn">
+					{ fixTxt ? fixTxt : options[this.state.value] }
+				</div>
 				<div style={{ 
 					width: this.state.isOpen ? width : 0,
 					height: this.state.isOpen ? height : 0,

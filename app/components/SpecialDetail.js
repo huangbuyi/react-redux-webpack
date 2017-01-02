@@ -33,6 +33,12 @@ const imgStyle = {
 	background: 'rgba(0,0,0,0.54)'
 }
 
+const topicImgStyle = {
+	width: '570px',
+	height: '421px',
+	background: 'rgba(0,0,0,0.54)'
+}
+
 const txtConStyle = {
 	position: 'relative',
 	boxSizing: 'border-box',
@@ -41,6 +47,13 @@ const txtConStyle = {
 	display: 'inline-block',
 	padding: '12px 24px',
 	float: 'left'
+}
+
+const topicTxtConStyle = {
+	position: 'relative',
+	boxSizing: 'border-box',
+	width: '570px',
+	padding: '12px 24px',
 }
 
 const h1Style = {
@@ -54,6 +67,13 @@ const textStyle = {
 	lineHeight: '20px',
 	marginTop: '20px',
 	marginLeft: '4px',
+	color: 'rgba(0,0,0,0.87)',
+	fontSize: '12px'
+}
+
+const topicTextStyle = {
+	lineHeight: '20px',
+	margin: '12px 0 32px 4px',
 	color: 'rgba(0,0,0,0.87)',
 	fontSize: '12px'
 }
@@ -144,6 +164,8 @@ class SpecialDetail extends React.Component {
 			links: []
 		}, spec.data ? spec.data: {} )
 
+		var isTopic = special.type == 'topic'
+
 		function getLinks () {
 			return special.links.map( link => (
 				<div style={ itemStyle } key={ link.id }>	
@@ -158,17 +180,18 @@ class SpecialDetail extends React.Component {
 		}
 
 		function getMain () {
-			return special.isFetching ? 
+			return spec.isFetching ? 
 			<div>
 				<Loading />
 			</div>
 			:
 			<div style={ conStyle }>
 				<div style={ titleConStyle }>
-					<img style={ imgStyle} src={ special.image } />
-					<div style={ txtConStyle }>
+					<img style={ isTopic ? topicImgStyle : imgStyle } 
+						src={ special.image } />
+					<div style={ isTopic ? topicTxtConStyle : txtConStyle }>
 						<h1 style={ h1Style }>{ special.title }</h1>
-						<p style={ textStyle }>{ special.text }</p>
+						<p style={ isTopic ? topicTextStyle : textStyle }>{ special.text }</p>
 						<p style= { cationStyle }>
 							<span>
 								类型 : { special.type.toUpperCase() }

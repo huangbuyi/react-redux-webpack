@@ -24,7 +24,7 @@ class PastSpecial extends React.Component {
 					{
 						specials.map( (special, i) => (
 							<li key={i}>
-								<Link to={"/" + cate + "/" + special.id}>
+								<Link to={"/specials/" + special.id}>
 									<p title={special.title}>
 										{special.title}
 									</p>

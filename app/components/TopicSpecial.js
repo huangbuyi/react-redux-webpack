@@ -24,6 +24,7 @@ class TopicSpecial extends React.Component {
 		var topic = Object.assign({
 			title: '',
 			target: '',
+			links: [{}],
 			image: '',
 			alt: '',
 			text: ''
@@ -36,7 +37,7 @@ class TopicSpecial extends React.Component {
 			</div>
 			:
 			<div style={ style }>
-				<a target="_blank" href={topic.target}>
+				<a target="_blank" href={topic.links[0].target}>
 					<div className="projectImage">
 						<img style={ imageStyle } src={ topic.image }/>
 						<div className="projectAlt" alt={topic.alt}>
@@ -45,7 +46,9 @@ class TopicSpecial extends React.Component {
 					</div>
 				</a>
 				<div className="projectIntro">
-					<h1>{topic.title}</h1>
+					<a target='_blank' href={topic.links[0].target}>
+						<h1>{topic.title}</h1>
+					</a>
 					<p>{topic.text}</p>
 				</div>
 			</div>

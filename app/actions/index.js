@@ -137,3 +137,60 @@ export function fetchSpecial (cate, id) {
 			.catch( error => { console.log(error) })
 	}
 }
+
+// 请求 Weekly List 数据
+export const REQUEST_WEEKLYS = 'REQUEST_WEEKLYS'
+function requestWeeklys () {
+	return {
+		type: REQUEST_WEEKLYS,
+	}
+}
+
+export const RECEIVE_WEEKLYS= 'RECEIVE_WEEKLYS'
+function receiveWeeklys (json) {
+	return {
+		type: RECEIVE_WEEKLYS,
+		json: json
+	}
+}
+
+export function fetchWeeklys () {
+	return function (dispatch) {
+		dispatch(requestWeeklys())
+
+		return fetch('http://localhost/laravel/public/weeklys')
+			.then( response => response.json() )
+			.then ( json => dispatch( receiveWeeklys(json) ))
+			.catch( error => { console.log(error) })
+	}
+}
+
+
+// 请求指定 Weekly 数据
+export const REQUEST_WEEKLY_BY_ID = 'REQUEST_WEEKLY_BY_ID'
+function requestWeeklyById (id) {
+	return {
+		type: REQUEST_WEEKLY_BY_ID,
+		weekly_id: id 
+	}
+}
+
+export const RECEIVE_WEEKLY_BY_ID = 'RECEIVE_WEEKLY_BY_ID'
+function receiveWeeklyById (id, json) {
+	return {
+		type: RECEIVE_WEEKLY_BY_ID,
+		weekly_id: id,
+		data: json
+	}
+}
+
+export function fetchWeeklyById (id) {
+	return function (dispatch) {
+		dispatch( requestWeeklyById(id) )
+
+		return fetch('http://localhost/laravel/public/weeklys/' + id)
+			.then( response => response.json() )
+			.then ( json => dispatch( receiveWeeklyById(id, json) ))
+			.catch( error => { console.log(error) })
+	}
+}

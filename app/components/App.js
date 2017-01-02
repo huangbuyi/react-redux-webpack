@@ -22,7 +22,7 @@ class App extends React.Component {
 		return (
 			<div>
 				<Header />
-				<Navigation />
+				<Navigation router={this.props.router}/>
 				<SideDrawer >
 					<div>Test</div>
 				</SideDrawer>

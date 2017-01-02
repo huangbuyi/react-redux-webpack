@@ -16,7 +16,6 @@
 	position: absolute;
 	overflow: hidden;
 	text-align: left;
-	box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
 	z-index: 999;
 	overflow: hidden;
 }
@@ -44,6 +43,7 @@
 }
 
 .selectBox-options-open{
+	box-shadow: 0 3px 12px rgba(0, 0, 0, 0.23), 0 3px 12px rgba(0, 0, 0, 0.16);
 	padding: 15px 0;
 	opacity: 1;
 	transition: width 275ms cubic-bezier(0.4, 0.0, 0.2, 1) 0ms,
@@ -55,6 +55,7 @@
 }
 
 .selectBox-options-close{
+	box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
 	padding: 0;
 	opacity: 1;
 	transition: width 305ms cubic-bezier(0.4, 0.0, 0.2, 1) 35ms,
