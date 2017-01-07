@@ -7,7 +7,6 @@ const $width = '710px';
 const themeColor = '#f5f5f5';
 
 const style = {
-	boxShadow: $shadow_1,
 	background: themeColor,
 	width: $width,
 	height: '360px'

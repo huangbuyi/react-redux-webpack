@@ -5,6 +5,7 @@ import React from 'react'
 import Header from './Header.jsx'
 import Navigation from '../containers/NavigationCon'
 import SideDrawer from '../containers/SideDrawerCon'
+import Footer from './Footer'
 
 class App extends React.Component {
 
@@ -26,12 +27,20 @@ class App extends React.Component {
 				<SideDrawer >
 					<div>Test</div>
 				</SideDrawer>
-				<div className="main">
+				<div style={ mainStyle } className="main">
 					{ this.props.children }
 				</div>
+				<Footer />
 			</div>
 		)
 	}
+}
+
+
+const mainStyle = {
+	boxSizing: 'border-box',
+	minHeight: 'calc(100vh - 199px)',
+	overflow: 'hidden'
 }
 
 export default App

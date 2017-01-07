@@ -20,19 +20,11 @@ class PastWeekly extends React.Component {
 		}
 	}
 
-	// static defaultProps = {
-	// 	weeklyList: {
-	// 		11: '第 11 期   好厉害的前端攻城狮',
-	// 		10: '第 10 期   第二的前端攻城狮'
-	// 	}
-	// }
-
 	handleWeeklyChange (id) {
 		this.props.router.push('/weekly/' + id )
 	}
 
 	componentDidMount() {
-		console.log(this.props)
 		this.props.fetchWeeklys()
 	}
 

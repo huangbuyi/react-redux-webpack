@@ -10,7 +10,7 @@ class Header extends React.Component {
 			<div className="header">
 				<div className="header-logo">
 					<Link to="/">
-						<h1>WEBBEAR</h1><h1>|</h1><h1>前端</h1><span>DEMO-0.0.1</span>
+						<h1>FEC WEEKLY</h1><h1>|</h1><h1>前端收藏家周刊</h1><span>DEMO-0.0.1</span>
 					</Link>
 				</div>
 				<div className="header-search">

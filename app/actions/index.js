@@ -1,4 +1,5 @@
 // fetch polyfill
+import 'whatwg-fetch'
 
 
 export const openSideDrawer = () => ({

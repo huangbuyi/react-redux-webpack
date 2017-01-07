@@ -10,49 +10,8 @@ import Loading from './Loading'
 import SpecialDetailCon from '../containers/SpecialDetailCon'
 import WeeklyDetailCon from '../containers/WeeklyDetailCon'
 
-import Surface from './Surface'
 
 
-class Surface2 extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			isOpen: false
-		}
-	}
-
-	handleClick () {
-		this.setState({
-			isOpen: !this.state.isOpen
-		})
-	}
-
-	render () {
-		var style = {
-			position: 'absolute',
-			left: '100%',
-			top: '0'
-		}
-
-		var style2 = {
-			width: '400px',
-			height: '400px',
-			display: 'inline-block'
-		}
-
-		return (
-			<div style={{position:'relative',display:'inline-block',margin:'100px 0 0 100px'}}>
-				<p onClick={this.handleClick.bind(this)}>666666666</p>
-				<div style={ style }>
-					<Surface isOpen={this.state.isOpen} x={1} y={1} offsetX={100} offsetY={50}>
-						<span style={style2}>PASThfad;sh;fdas;fjasdlfjjdfas</span>
-					</Surface>
-				</div>
-			</div>
-		)
-	}
-	
-}
 
 
 const AppRouter = () => (
@@ -80,7 +39,6 @@ const AppRouter = () => (
 			<Route path="/specials/:id" component={SpecialDetailCon} />
 			
 			<Route path="/weekly/:id" component={WeeklyDetailCon} />
-			<Route path="/test" component={Surface2} />
 		</Route>
 	</Router>
 )

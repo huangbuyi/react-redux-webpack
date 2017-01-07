@@ -1,5 +1,4 @@
 import React from 'react'
-import './PeriodDirectory.css'
 
 const black = '#000';
 const grey = '#757575'; 
@@ -10,8 +9,7 @@ const shadow_1 = '0 1.5px 6px rgba(0,0,0,0.12), 0 1.5px 4px rgba(0,0,0,0.24)'
 const directoryStyle = {
 	boxSizing: 'border-box',
 	background: themeColor,
-	padding: '4px 10px 180px 10px',
-	boxShadow: shadow_1
+	padding: '4px 10px 180px 10px'
 }
 const titleStyle = {
 	fontSize: '14px',

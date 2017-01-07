@@ -17,7 +17,7 @@ class SearchBox extends React.Component {
 			"Google":"Google",
 			"Bind":"必应",
 			"Github":"Github",
-			"StackOverflow":"StackOverflow23333333333333"
+			"StackOverflow":"StackOverflow"
 		},
 		engines: {
 			"Baidu":"https://www.baidu.com/s?wd=",
