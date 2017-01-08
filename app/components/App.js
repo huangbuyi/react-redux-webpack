@@ -24,9 +24,6 @@ class App extends React.Component {
 			<div>
 				<Header />
 				<Navigation router={this.props.router}/>
-				<SideDrawer >
-					<div>Test</div>
-				</SideDrawer>
 				<div style={ mainStyle } className="main">
 					{ this.props.children }
 				</div>

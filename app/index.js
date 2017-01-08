@@ -1,4 +1,4 @@
-import React from 'react'
+/*import React from 'react'
 import { render } from 'react-dom'
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
@@ -38,5 +38,16 @@ render(
 	<Provider store={store}>
 		<AppRouter />
 	</Provider>,
+	document.getElementById('content')
+)*/
+///
+import React from 'react'
+import { render } from 'react-dom'
+import FlatButton from './commons/Button'
+
+render(
+	<div style={{margin:'50px 50px'}}>
+		<FlatButton />
+	</div>,
 	document.getElementById('content')
 )
