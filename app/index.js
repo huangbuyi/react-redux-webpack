@@ -43,11 +43,12 @@ render(
 ///
 import React from 'react'
 import { render } from 'react-dom'
-import FlatButton from './commons/Button'
+import FloatActionButton from './commons/Button/FloatActionButton'
+import Write from './commons/SvgIcon/write'
 
 render(
 	<div style={{margin:'50px 50px'}}>
-		<FlatButton />
+		<FloatActionButton theme='colour' icon={ Write }/>
 	</div>,
 	document.getElementById('content')
 )

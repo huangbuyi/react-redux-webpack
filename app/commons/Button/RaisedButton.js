@@ -9,21 +9,27 @@ const defStyle = {
 	height: '36px',
 	fontSize: '14px',
 	fontWeight: 500,
-	transition: 'all 420ms cubic-bezier(0.23, 1, 0.32, 1) 0ms'
+	transition: 'all 420ms cubic-bezier(0.23, 1, 0.32, 1) 0ms',
+	boxShadow: 'rgba(0, 0, 0, 0.118) 0px 1px 6px, rgba(0, 0, 0, 0.118) 0px 1px 4px'
 }
 
 const disabledStyle = Object.assign({}, defStyle, {
+	backgroundColor: 'rgb(229,229,229)',
+	boxShadow: 'none',
 	cursor: 'default',
-	backgroundColor: 'rgba(0,0,0,0)',
 	color: 'rgba(0,0,0,0.3)'
 })
+
+const activeStyle = {
+	boxShadow: 'rgba(0, 0, 0, 0.157) 0px 3px 10px, rgba(0, 0, 0, 0.227) 0px 3px 10px'
+}
 
 
 const themeStyle = {
 	light: {
-		backgroundColor: 'rgba(0,0,0,0)',
+		backgroundColor: '#FFF',
 		color: 'rgba(0,0,0,0.87)',
-		hoverColor: 'rgba(153,153,153,0.2)',
+		hoverColor: '#EBEBEB',
 		rippleColor: 'rgba(153,153,153,0.28)'
 	},
 	colour: {
@@ -35,7 +41,7 @@ const themeStyle = {
 
 }
 
-class FlatButton extends React.Component {
+class RaisedButton extends React.Component {
 	static defaultProps = {
 		disabled: false,
 		theme: 'light'
@@ -68,7 +74,8 @@ class FlatButton extends React.Component {
 		var { ...p } = {
 			style: this.getStyle(),
 			hoverStyle: this.getHoverStyle(),
-			onClick: this.onClick,
+			activeStyle: activeStyle,
+			onClick: props.onClick,
 			rippleColor: this.getRippleColor(),
 			disabled: props.disabled,
 			disabledStyle: disabledStyle
@@ -83,7 +90,7 @@ class FlatButton extends React.Component {
 }
 
 ///
-FlatButton.proptypes = {
+RaisedButton.proptypes = {
 	disabled: React.PropTypes.bool,
 	backgroundColor: React.PropTypes.string,
 	color: React.PropTypes.string,
@@ -93,4 +100,4 @@ FlatButton.proptypes = {
 	onClick: React.PropTypes.func 
 }
 
-export default FlatButton
+export default RaisedButton
