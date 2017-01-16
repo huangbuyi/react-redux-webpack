@@ -1,6 +1,9 @@
 import React from 'react'
 import GoBack from './GoBack'
 import Loading from './Loading'
+import config from '../app.json'
+
+const { prefix, topicPostfix, specialPostfix } = config.image
 
 const themeColor = '#f5f5f5'
 
@@ -188,7 +191,7 @@ class SpecialDetail extends React.Component {
 			<div style={ conStyle }>
 				<div style={ titleConStyle }>
 					<img style={ isTopic ? topicImgStyle : imgStyle } 
-						src={ special.image } />
+						src={ prefix + special.image + (isTopic ? topicPostfix : specialPostfix)  } />
 					<div style={ isTopic ? topicTxtConStyle : txtConStyle }>
 						<h1 style={ h1Style }>{ special.title }</h1>
 						<p style={ isTopic ? topicTextStyle : textStyle }>{ special.text }</p>

@@ -1,4 +1,4 @@
-/*import React from 'react'
+import React from 'react'
 import { render } from 'react-dom'
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
@@ -39,16 +39,15 @@ render(
 		<AppRouter />
 	</Provider>,
 	document.getElementById('content')
-)*/
+)
 ///
-import React from 'react'
+/*import React from 'react'
 import { render } from 'react-dom'
-import FloatActionButton from './commons/Button/FloatActionButton'
-import Write from './commons/SvgIcon/write'
+import InformUs from './components/InformUs'
 
 render(
 	<div style={{margin:'50px 50px'}}>
-		<FloatActionButton theme='colour' icon={ Write }/>
+		<InformUs/>
 	</div>,
 	document.getElementById('content')
-)
+)*/

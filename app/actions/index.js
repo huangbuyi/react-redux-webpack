@@ -1,6 +1,9 @@
 // fetch polyfill
 import 'whatwg-fetch'
+import config from '../app.json' 
 
+const host = config.apiHost
+//const host = 'http://4bin.cn/FEC52/public/'
 
 export const openSideDrawer = () => ({
 	type: 'Open_SideDrawer'
@@ -43,7 +46,7 @@ export function fetchWeekly () {
 	return function (dispatch) {
 		dispatch(requestWeekly() )
 
-		return fetch('http://localhost/laravel/public/weekly')
+		return fetch(host + 'weekly')
 			.then( response => response.json() )
 			.then( json => dispatch( receiveWeekly(json) )
 		)
@@ -72,7 +75,7 @@ export function fetchSpecials (type, start = 0) {
 	return function (dispatch) {
 		dispatch(requestSpecials(type))
 
-		return fetch('http://localhost/laravel/public/specials?limit=5&type=' + type + '&start=' + start)
+		return fetch(host + 'specials?limit=5&type=' + type + '&start=' + start)
 			.then( response => response.json() )
 			.then( json => dispatch( receiveSpecials(type, json) ) )
 			.catch( error => { console.log(error) })
@@ -101,7 +104,7 @@ export function fetchLink (id) {
 	return function (dispatch) {
 		dispatch(requestLink(id))
 
-		return fetch('http://localhost/laravel/public/links/' + id)
+		return fetch(host + 'links/' + id)
 			.then( response => response.json() )
 			.then ( json => dispatch( receiveLink(id, json) ))
 			.catch( error => { console.log(error) })
@@ -132,7 +135,7 @@ export function fetchSpecial (cate, id) {
 	return function (dispatch) {
 		dispatch(requestSpecial(cate, id))
 
-		return fetch('http://localhost/laravel/public/specials/' + id)
+		return fetch(host + 'specials/' + id)
 			.then( response => response.json() )
 			.then ( json => dispatch( receiveSpecial(cate, id, json) ))
 			.catch( error => { console.log(error) })
@@ -159,7 +162,7 @@ export function fetchWeeklys () {
 	return function (dispatch) {
 		dispatch(requestWeeklys())
 
-		return fetch('http://localhost/laravel/public/weeklys')
+		return fetch(host + 'weeklys')
 			.then( response => response.json() )
 			.then ( json => dispatch( receiveWeeklys(json) ))
 			.catch( error => { console.log(error) })
@@ -189,7 +192,7 @@ export function fetchWeeklyById (id) {
 	return function (dispatch) {
 		dispatch( requestWeeklyById(id) )
 
-		return fetch('http://localhost/laravel/public/weeklys/' + id)
+		return fetch(host + 'weeklys/' + id)
 			.then( response => response.json() )
 			.then ( json => dispatch( receiveWeeklyById(id, json) ))
 			.catch( error => { console.log(error) })

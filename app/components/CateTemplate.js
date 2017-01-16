@@ -11,9 +11,12 @@ class CateTemplate extends React.Component {
 	// @oneCate is reference of specialsByCate state of store
 	// @type is type of specials 
 	// @specials is reference of specialsByType state of store
+	componentDidMount() {
+		this.componentDidUpdate()
+	}
 
-	componentWillUpdate(nextProps) {
-		var { oneCate, type, specials, fetchSpecial } = nextProps
+	componentDidUpdate() {
+		var { oneCate, type, specials, fetchSpecial } = this.props
 
 		// get special detail by id
 		oneCate.data && oneCate.data.map( web => {

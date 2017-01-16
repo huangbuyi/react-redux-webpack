@@ -1,0 +1,18 @@
+{
+	"apiHost": "http://localhost/laravel/public/",
+	"color": {
+		"primary": "#2196F3",
+		"secondary": "",
+		"background": "#FFFFFF",
+		"foreground": "#F5F5F5"
+	},
+	"shadow": {
+		"shadow_1": "",
+		"shadow_2": ""
+	},
+	"image": {
+		"prefix":"http://ojn061c9k.bkt.clouddn.com/",
+		"topicPostfix": "?imageView2/2/w/500/h/360/interlace/1/q/100",
+		"specialPostfix": "?imageView2/2/w/170/h/230/interlace/0/q/100"
+	}
+}

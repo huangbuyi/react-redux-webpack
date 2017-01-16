@@ -28,9 +28,9 @@
 .projectIntro{
 	box-sizing: border-box;
 	float:left;
-	width: 180px;
+	width: 210px;
 	height: 360px;
-	padding: 16px 12px;
+	padding: 16px 16px 16px 12px;
 }
 .projectIntro h1{
 	cursor: pointer;
@@ -45,6 +45,7 @@
 .projectIntro p{
 	word-wrap: break-word;
 	font-size: 13px;
+	line-height: 20px;
 	color: rgba(0,0,0,0.87);
 	margin-top: 12px;
 }

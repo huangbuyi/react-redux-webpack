@@ -44,7 +44,7 @@ const themeStyle = {
 class RaisedButton extends React.Component {
 	static defaultProps = {
 		disabled: false,
-		theme: 'light'
+		theme: 'colour'
 	}
 
 	getStyle () {
@@ -69,6 +69,33 @@ class RaisedButton extends React.Component {
 		return rippleColor ? rippleColor : themeStyle[theme].rippleColor
 	}
 
+	getIcon () {
+		var { icon, color, theme } = this.props,
+			props = {
+				style: {
+					float: 'left',
+					height: '36px',
+					margin: '0 8px 0 0'
+				},
+				color: color ? color : themeStyle[theme].color
+			}
+
+			
+
+		return icon ? React.createElement(icon, props) : null
+				
+	}
+
+	getChildren () {
+		var { icon, children } = this.props
+		return (
+			<div>
+				{ this.getIcon() }
+				<div style={{float:'left',height:'36px',lineHeight:'36px'}}>{ children }</div>
+			</div>
+		)
+	}
+
 	render () {
 		var props = this.props
 		var { ...p } = {
@@ -83,7 +110,7 @@ class RaisedButton extends React.Component {
 
 		return (
 			<Button { ...p } >
-				{ props.children }
+				{ this.getChildren() }
 			</Button>
 		)
 	}

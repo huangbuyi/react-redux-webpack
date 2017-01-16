@@ -3,7 +3,9 @@ import Loading from './Loading'
 import { Link } from 'react-router'
 import './specialBox.css'
 
+import config from '../app.json'
 
+const { prefix, specialPostfix } = config.image
 
 class SpecialBox extends React.Component {
 	constructor(props) {
@@ -36,7 +38,7 @@ class SpecialBox extends React.Component {
 				<div className="specialBox-title">
 					<Link to={ '/specials/' + special.id }>
 						<div>
-							<img src={ special.image } />
+							<img src={ prefix + special.image + specialPostfix} />
 							<div className="blackFilter"></div>
 							<h1 style={ headStyle }>{ special.title }</h1>
 							<div style={ subheadStyle }>
