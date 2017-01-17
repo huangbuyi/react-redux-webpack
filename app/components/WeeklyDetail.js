@@ -25,7 +25,6 @@ class WeeklyDetail extends React.Component {
 	render () {
 
 		return (
-
 			<div>			
 				<WeeklyCon />
 			</div>

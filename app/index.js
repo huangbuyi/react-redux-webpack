@@ -1,4 +1,4 @@
-import React from 'react'
+/*import React from 'react'
 import { render } from 'react-dom'
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
@@ -39,15 +39,18 @@ render(
 		<AppRouter />
 	</Provider>,
 	document.getElementById('content')
-)
+)*/
 ///
-/*import React from 'react'
+import React from 'react'
 import { render } from 'react-dom'
-import InformUs from './components/InformUs'
+import BackTop from './commons/BackTop'
 
 render(
-	<div style={{margin:'50px 50px'}}>
-		<InformUs/>
-	</div>,
+	<div style={{padding: '2000px 0'}}>
+		<div style={{position:'fixed',right:'50px',bottom:'50px'}}>
+			<BackTop backgroundColor='rgba(0,0,0,0.30)' hoverColor='rgba(0,0,0,0.38)'/>
+		</div>
+	</div>
+	,
 	document.getElementById('content')
-)*/
+)

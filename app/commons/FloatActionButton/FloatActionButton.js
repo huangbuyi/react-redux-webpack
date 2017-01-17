@@ -1,18 +1,24 @@
 import React from 'react'
-import Button from './Button'
+import Button from '../Button/Button'
+import Plus from '../SvgIcon/plus'
 
 const defStyle = {
 	border: 'none',
 	outline: 'none',
 	padding: '0',
-	Width: '56px',
+	width: '56px',
 	height: '56px',
 	lineHeight: '56px',
 	borderRadius:'28px',
 	fontSize: '14px',
 	fontWeight: 500,
-	transition: 'all 420ms cubic-bezier(0.23, 1, 0.32, 1) 0ms',
-	boxShadow: 'rgba(0, 0, 0, 0.157) 0px 3px 10px, rgba(0, 0, 0, 0.227) 0px 3px 10px',
+	transform: 'scale(0)',
+	transition: 'all 420ms cubic-bezier(0.23, 1, 0.32, 1) 0ms'
+}
+
+const visibleStyle = {
+	transform: 'scale(1)',
+	boxShadow: 'rgba(0, 0, 0, 0.157) 0px 3px 10px, rgba(0, 0, 0, 0.227) 0px 3px 10px'
 }
 
 const disabledStyle = Object.assign({}, defStyle, {
@@ -43,19 +49,21 @@ const themeStyle = {
 
 }
 
-class FloadActionButton extends React.Component {
+class FloatActionButton extends React.Component {
 	static defaultProps = {
 		disabled: false,
-		theme: 'light'
+		theme: 'colour',
+		visible: false
 	}
 
 	getStyle () {
-		var { backgroundColor, color, theme } = this.props
+		var { backgroundColor, color, theme, visible } = this.props
+
 
 		return Object.assign({}, defStyle, {
 			backgroundColor: backgroundColor ? backgroundColor : themeStyle[theme].backgroundColor,
 			color: color ? color : themeStyle[theme].color 
-		})
+		}, visible ? visibleStyle : null)
 	}
 
 	getHoverStyle () {
@@ -69,6 +77,18 @@ class FloadActionButton extends React.Component {
 	getRippleColor () {
 		var { rippleColor, theme } = this.props
 		return rippleColor ? rippleColor : themeStyle[theme].rippleColor
+	}
+
+	getChildren () {
+		var { children, disabled, icon } = this.props
+		if ( icon ) {
+			return React.createElement(icon, {
+				color: disabled ? 'rgba(0,0,0,0.3)' : '#ffffff',
+				style: { height:'56px', lineHeight:'56px' }
+			})
+		}
+		return children ? children : 
+			<Plus color={disabled ? 'rgba(0,0,0,0.3)' : '#ffffff'} style={{height:'56px', lineHeight:'56px'}}/>
 	}
 
 	render () {
@@ -85,14 +105,16 @@ class FloadActionButton extends React.Component {
 
 		return (
 			<Button { ...p } >
-				{ props.children }
+				{ this.getChildren() }
 			</Button>
 		)
 	}
 }
 
 ///
-FloadActionButton.proptypes = {
+FloatActionButton.proptypes = {
+	visible: React.PropTypes.bool,
+	icon: React.PropTypes.node,
 	disabled: React.PropTypes.bool,
 	backgroundColor: React.PropTypes.string,
 	color: React.PropTypes.string,
@@ -102,4 +124,4 @@ FloadActionButton.proptypes = {
 	onClick: React.PropTypes.func 
 }
 
-export default FloadActionButton
+export default FloatActionButton
