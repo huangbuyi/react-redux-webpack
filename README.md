@@ -7,4 +7,4 @@ A pratice project and React-Redux-based implementation
 - Complex asynchronous data flow
 
 ##Links
-- (FEC WEEKLY page)[http://wwww.4bin.cn]
+- [FEC WEEKLY page](http://wwww.4bin.cn)
