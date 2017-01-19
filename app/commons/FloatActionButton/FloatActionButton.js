@@ -50,11 +50,6 @@ const themeStyle = {
 }
 
 class FloatActionButton extends React.Component {
-	static defaultProps = {
-		disabled: false,
-		theme: 'colour',
-		visible: false
-	}
 
 	getStyle () {
 		var { backgroundColor, color, theme, visible } = this.props
@@ -112,6 +107,12 @@ class FloatActionButton extends React.Component {
 }
 
 ///
+FloatActionButton.defaultProps = {
+	disabled: false,
+	theme: 'colour',
+	visible: false
+}
+
 FloatActionButton.proptypes = {
 	visible: React.PropTypes.bool,
 	icon: React.PropTypes.node,

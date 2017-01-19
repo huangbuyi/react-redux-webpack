@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from './Button'
+import Button from '../Button/Button'
 
 const defStyle = {
 	border: 'none',
@@ -9,27 +9,21 @@ const defStyle = {
 	height: '36px',
 	fontSize: '14px',
 	fontWeight: 500,
-	transition: 'all 420ms cubic-bezier(0.23, 1, 0.32, 1) 0ms',
-	boxShadow: 'rgba(0, 0, 0, 0.118) 0px 1px 6px, rgba(0, 0, 0, 0.118) 0px 1px 4px'
+	transition: 'all 420ms cubic-bezier(0.23, 1, 0.32, 1) 0ms'
 }
 
 const disabledStyle = Object.assign({}, defStyle, {
-	backgroundColor: 'rgb(229,229,229)',
-	boxShadow: 'none',
 	cursor: 'default',
+	backgroundColor: 'rgba(0,0,0,0)',
 	color: 'rgba(0,0,0,0.3)'
 })
-
-const activeStyle = {
-	boxShadow: 'rgba(0, 0, 0, 0.157) 0px 3px 10px, rgba(0, 0, 0, 0.227) 0px 3px 10px'
-}
 
 
 const themeStyle = {
 	light: {
-		backgroundColor: '#FFF',
+		backgroundColor: 'rgba(0,0,0,0)',
 		color: 'rgba(0,0,0,0.87)',
-		hoverColor: '#EBEBEB',
+		hoverColor: 'rgba(153,153,153,0.2)',
 		rippleColor: 'rgba(153,153,153,0.28)'
 	},
 	colour: {
@@ -41,11 +35,7 @@ const themeStyle = {
 
 }
 
-class RaisedButton extends React.Component {
-	static defaultProps = {
-		disabled: false,
-		theme: 'colour'
-	}
+class FlatButton extends React.Component {
 
 	getStyle () {
 		var { backgroundColor, color, theme } = this.props
@@ -80,14 +70,11 @@ class RaisedButton extends React.Component {
 				color: color ? color : themeStyle[theme].color
 			}
 
-			
-
-		return icon ? React.createElement(icon, props) : null
-				
+		return icon ? React.createElement(icon, props) : null		
 	}
 
 	getChildren () {
-		var { icon, children } = this.props
+		var { children } = this.props
 		return (
 			<div>
 				{ this.getIcon() }
@@ -101,8 +88,7 @@ class RaisedButton extends React.Component {
 		var { ...p } = {
 			style: this.getStyle(),
 			hoverStyle: this.getHoverStyle(),
-			activeStyle: activeStyle,
-			onClick: props.onClick,
+			onClick: this.onClick,
 			rippleColor: this.getRippleColor(),
 			disabled: props.disabled,
 			disabledStyle: disabledStyle
@@ -117,14 +103,20 @@ class RaisedButton extends React.Component {
 }
 
 ///
-RaisedButton.proptypes = {
+FlatButton.defaultProps = {
+	disabled: false,
+	theme: 'light'
+}
+
+FlatButton.proptypes = {
 	disabled: React.PropTypes.bool,
 	backgroundColor: React.PropTypes.string,
 	color: React.PropTypes.string,
 	hoverColor: React.PropTypes.string,
 	theme: React.PropTypes.oneOf(['light', 'colour']),
 	rippleColor: React.PropTypes.string,
-	onClick: React.PropTypes.func 
+	onClick: React.PropTypes.func,
+	icon: React.PropTypes.node 
 }
 
-export default RaisedButton
+export default FlatButton

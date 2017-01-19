@@ -2,17 +2,12 @@ import React from 'react'
 
 class SvgIcon extends React.Component {
 	constructor(props) {
-		super(props);
+		super(props)
 		this.state = {
 			hovered: false
 		}
 		this.onMouseEnter = this.onMouseEnter.bind(this)
 		this.onMouseLeave = this.onMouseLeave.bind(this)
-	}
-
-	static defaultProps = {
-		style: {},
-		viewBox: '0 0 24 24'
 	}
 
 	onMouseEnter () {
@@ -42,14 +37,13 @@ class SvgIcon extends React.Component {
 
 	render () {
 		var props = this.props,
-		 	state = this.state,
 			{ ..._props } = {
-			fill: props.color,
-			style: this.getStyle(),
-			viewBox: props.viewBox,
-			onMouseEnter: this.onMouseEnter,
-			onMouseLeave: this.onMouseLeave
-		}
+				fill: props.color,
+				style: this.getStyle(),
+				viewBox: props.viewBox,
+				onMouseEnter: this.onMouseEnter,
+				onMouseLeave: this.onMouseLeave
+			}
 
 		return (
 			<svg {..._props}>
@@ -57,6 +51,17 @@ class SvgIcon extends React.Component {
 			</svg>
 		)
 	}
+}
+
+///
+SvgIcon.defaultProps = {
+	style: {},
+	viewBox: '0 0 24 24'
+}
+
+SvgIcon.proptypes = {
+	style: React.PropTypes.object,
+	viewBox: React.PropTypes.string
 }
 
 export default SvgIcon

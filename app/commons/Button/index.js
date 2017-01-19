@@ -1,2 +1,1 @@
-export { default } from './FlatButton'
-export { InnerButton } from './Button'
+export { default } from './Button'

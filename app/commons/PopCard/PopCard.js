@@ -3,17 +3,10 @@ import Pop from '../Pop'
 
 class PopCard extends React.Component {
 	constructor(props) {
-		super(props);
+		super(props)
 		this.state = {
 			isOpen: false
 		}
-	}
-
-	static defaultProps = {
-		title: '无标题',
-		style: {},
-		headerStyle: {},
-		bodyStyle: {}
 	}
 
 	handleClick () {
@@ -62,6 +55,13 @@ class PopCard extends React.Component {
 }
 
 ///
+PopCard.defaultProps = {
+	title: '无标题',
+	style: {},
+	headerStyle: {},
+	bodyStyle: {}
+}
+
 PopCard.proptypes = {
 	title: React.PropTypes.node,
 	style: React.PropTypes.object,

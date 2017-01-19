@@ -50,16 +50,10 @@ var closeStyle = {
 
 class Surface extends React.Component {
 	constructor(props) {
-		super(props);
+		super(props)
 	}
 
-	static defaultProps = {
-		isOpen: false
-	}
-
-
-
-	componentWillUpdate(nextProps, nextState) {
+	componentWillUpdate() {
 		var { x = 1, y = 1, offsetX = 0, offsetY = 0 } = this.props
 		var { offsetWidth, offsetHeight }  = this.refs.container
 
@@ -111,6 +105,11 @@ class Surface extends React.Component {
 		// 渲染第二次以获取子组件宽高
 		this.forceUpdate()
 	}
+}
+
+
+Surface.defaultProps = {
+	isOpen: false
 }
 
 Surface.propTypes = {

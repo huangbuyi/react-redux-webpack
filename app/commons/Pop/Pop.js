@@ -1,5 +1,5 @@
 import React from 'react'
-import Surface from './Surface'
+import Surface from '../Surface'
 
 const positionStyle = {
 	position: 'absolute',
@@ -14,15 +14,15 @@ const containerStyle = {
 }
 
 function contains(root, n) {
-	var node = n;
+	var node = n
 	while (node) {
 		if (node === root) {
-			return true;
+			return true
 		}
-		node = node.parentNode;
+		node = node.parentNode
 	}
 
-	return false;
+	return false
 }
 
 
@@ -33,12 +33,6 @@ class Pop extends React.Component {
 			visible: this.props.defaultVisible
 		}
 		this.onDocumentClick = this.onDocumentClick.bind(this)
-	}
-
-	static defaultProps = {
-			defaultVisible: false,
-			offset: 5,
-			placement: 'topLeft'
 	}
 
 	onClick () {
@@ -67,7 +61,6 @@ class Pop extends React.Component {
 	}
 	render () {
 		var { 
-			defaultVisible,
 			children,
 			offset,
 			placement,
@@ -100,7 +93,7 @@ class Pop extends React.Component {
 		})
 
 		// 确定偏移方向
-		var offX = (v[1] == 0 && v[2] == -1) || (v[1] == '100%' &&　v[2] == 1) ? parseInt(offset) : 0
+		var offX = (v[1] == 0 && v[2] == -1) || (v[1] == '100%' && v[2] == 1) ? parseInt(offset) : 0
 		var offY = offX == 0 ? parseInt(offset) : 0
 
 		return (
@@ -116,6 +109,12 @@ class Pop extends React.Component {
 			</span>
 		)
 	}
+}
+
+Pop.defaultProps = {
+	defaultVisible: false,
+	offset: 5,
+	placement: 'topLeft'
 }
 
 const placements = ['topLeft', 'top', 'topRight', 'rightTop', 'right', 'rightBottom',

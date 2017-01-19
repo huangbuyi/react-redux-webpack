@@ -6,7 +6,7 @@ import backTopIcon from '../SvgIcon/backTop'
 
 class BackTop extends React.Component {
 	constructor(props) {
-		super(props);
+		super(props)
 		this.state = {
 			visible: false
 		}
@@ -14,13 +14,10 @@ class BackTop extends React.Component {
 		this.onClick = this.onClick.bind(this)
 	}
 
-	static defaultProps = {
-		height: 1080
-	}
-
 	onClick () {
-		var easing = BezierEasing(0.4,0,0.2,1)
-		var duration = 400
+		var { cubicBezier, duration, onClick } = this.props
+		var [ ...p ] = cubicBezier 
+		var easing = BezierEasing( ...p )
 		var distance = document.body.scrollTop - 0
 		var t = 0
 		var _this = this
@@ -41,11 +38,13 @@ class BackTop extends React.Component {
 
 			_this.timer = setTimeout(setScroll, 20)
 		}
+
+		onClick && onClick()
 	}
 
 
-
-	onScroll (e) {
+	// todo 改造获取dom方式为一次性的
+	onScroll () {
 		var { height } = this.props
 		var scrollTop = 0
 		if ( document.body ) {
@@ -71,28 +70,46 @@ class BackTop extends React.Component {
 	}
 
 	render () {
-		var { onClick, visible, height, ...props } = this.props
+		var { visible, fixedStyle, icon } = this.props,
+			state = this.state,
+			{ ...props } = Object.assign({}, this.props, {
+				onClick: this.onClick,
+				visible: visible ? visible : state.visible,
+				icon: icon ? icon : backTopIcon
+			})
+
 		return (
-			<div>
-				<FloatActionButton 
-					onClick={ this.onClick } 
-					visible={ this.state.visible }
-					icon={ backTopIcon }
-					{ ...props }
-				/>
+			<div style={ fixedStyle ? fixedStyle : defFixedStyle }>
+				<FloatActionButton { ...props }/>
 			</div>
 		)
 	}
 
 	componentWillUnmount() {
 		document.removeEventListener(this.onScroll)
+		clearTimeout(this.timer)
 	}
+}
+
+BackTop.defaultProps = {
+	height: 1080,
+	cubicBezier: [0.4,0,0.2,1],
+	duration: 400
 }
 
 BackTop.proptypes = {
 	height: React.PropTypes.number,
 	visible: React.PropTypes.bool,
-	onClick: React.PropTypes.func
+	onClick: React.PropTypes.func,
+	duration: React.PropTypes.number,
+	cubicBezier: React.PropTypes.array,
+	fixedStyle: React.PropTypes.object
+}
+
+const defFixedStyle = {
+	position:'fixed',
+	right:'50px',
+	bottom:'50px'
 }
 
 export default BackTop

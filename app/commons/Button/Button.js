@@ -1,7 +1,7 @@
 import React from 'react'
 import './Button.css'
 
-const delay = 22650
+const delay = 650
 
 const defStyle = {
 	position: 'relative',
@@ -42,7 +42,7 @@ function getMaxLengthToRect(w, h, x, y) {
 
 class Button extends React.Component {
 	constructor(props) {
-		super(props);
+		super(props)
 		this.state = {
 			active: false,
 			hover: false
@@ -52,12 +52,6 @@ class Button extends React.Component {
 		this.onMouseLeave = this.onMouseLeave.bind(this)
 		this.onMouseDown = this.onMouseDown.bind(this)
 		this.onMouseUp = this.onMouseUp.bind(this)
-	}
-
-	static defaultProps = {
-		disabled: false,
-		htmlType: 'button',
-		rippleColor: 'rgba(153,153,153,0.28)'
 	}
 
 	onMouseEnter () {
@@ -73,7 +67,7 @@ class Button extends React.Component {
 	}
 
 	onMouseDown ( e ) {
-		var e = e.nativeEvent
+		e = e.nativeEvent
 		this.setState({
 			active: true
 		})
@@ -171,6 +165,12 @@ class Button extends React.Component {
 
 
 ///
+
+Button.defaultProps = {
+	disabled: false,
+	htmlType: 'button',
+	rippleColor: 'rgba(153,153,153,0.28)'
+}
 
 const btnTypes = ['button', 'submit', 'reset', 'menu']
 
