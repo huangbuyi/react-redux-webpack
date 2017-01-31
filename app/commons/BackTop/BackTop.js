@@ -109,7 +109,8 @@ BackTop.proptypes = {
 const defFixedStyle = {
 	position:'fixed',
 	right:'50px',
-	bottom:'50px'
+	bottom:'50px',
+	zIndex: 100
 }
 
 export default BackTop

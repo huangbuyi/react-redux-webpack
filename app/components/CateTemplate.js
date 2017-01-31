@@ -2,7 +2,6 @@ import React from 'react'
 import GoBack from './GoBack'
 import SpecialBox from './SpecialBox'
 import TopicSpecial from './TopicSpecial'
-import GoTopButton from './GoTopButton'
 import RaisedButton from './RaisedButton'
 import Loading from './Loading'
 
@@ -81,7 +80,6 @@ class CateTemplate extends React.Component {
 							<div style={ moreBtnStyle }>
 								{ getButton() }
 							</div>
-							<GoTopButton />
 						</div>
 					}
 				</div>

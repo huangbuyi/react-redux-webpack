@@ -13,7 +13,8 @@ const defStyle = {
 	fontSize: '14px',
 	fontWeight: 500,
 	transform: 'scale(0)',
-	transition: 'all 420ms cubic-bezier(0.23, 1, 0.32, 1) 0ms'
+	transition: 'all 420ms cubic-bezier(0.23, 1, 0.32, 1) 0ms',
+	zIndex: 100
 }
 
 const visibleStyle = {

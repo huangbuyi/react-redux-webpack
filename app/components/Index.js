@@ -6,7 +6,6 @@ import InformUs from './InformUs'
 import SpecialBoxCon from '../containers/SpecialBoxCon'
 import './Index.css'
 import Loading from './Loading'
-import GoTopButton from './GoTopButton'
 
 class Index extends React.Component {
 	constructor(props) {
@@ -87,7 +86,6 @@ class Index extends React.Component {
 					</div>
 					<div className="specials">
 						{ getSpecials() }
-						<GoTopButton />
 					</div>
 					<div className="rightSide">
 						<InformUs />

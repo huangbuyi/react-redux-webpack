@@ -1,5 +1,6 @@
 {
 	"apiHost": "http://4bin.cn/FEC52/public/",
+	"history": "browser",
 	"color": {
 		"primary": "#2196F3",
 		"secondary": "",

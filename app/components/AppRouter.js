@@ -1,21 +1,21 @@
 import React from 'react'
 import AppCon from '../containers/AppCon'
 import LinkDetailCon from '../containers/LinkDetailCon'
+import config from '../app.json'
 
 import { TopicCon, WebsitesCon, SourceCon, CircleCon, BooksCon, OtherCon } from '../containers/CateCon'
-import MyEditor from './MyEditor'
 import { IndexCon } from '../containers/IndexCon'
-import { Router, Route, IndexRoute, Link, hashHistory, browserHistory } from 'react-router'
-import Loading from './Loading'
+import { Router, Route, Redirect, IndexRoute, Link, hashHistory, browserHistory } from 'react-router'
 import SpecialDetailCon from '../containers/SpecialDetailCon'
 import WeeklyDetailCon from '../containers/WeeklyDetailCon'
 
-
-
-
+const history = {
+	'hash': hashHistory,
+	'browser': browserHistory
+}[config.history]
 
 const AppRouter = () => (
-	<Router history={browserHistory}>
+	<Router history={ history }>
 		<Route path="/" component={AppCon}>
 			<IndexRoute component={IndexCon} />
 			<Route path="index" component={IndexCon} />
@@ -26,8 +26,6 @@ const AppRouter = () => (
 			<Route path="circle" component={CircleCon} />
 			<Route path="book" component={BooksCon} />
 			<Route path="other" component={OtherCon} />
-			<Route path="suggest" component={Loading} />
-
 
 			<Route path="website/:id" component={LinkDetailCon} />
 			<Route path="topic/:id" component={LinkDetailCon} />
@@ -40,10 +38,9 @@ const AppRouter = () => (
 			
 			<Route path="weekly/:id" component={WeeklyDetailCon} />
 		</Route>
+		<Redirect from="/index.html" to="/" />
+		<Redirect from="/index.php" to="/" />
 	</Router>
 )
 
 export default AppRouter
-
-// todo: 添加book类
-// todo: 修改名称

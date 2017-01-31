@@ -6,6 +6,7 @@ import Header from './Header.jsx'
 import Navigation from '../containers/NavigationCon'
 import SideDrawer from '../containers/SideDrawerCon'
 import Footer from './Footer'
+import BackTop from '../commons/BackTop'
 
 class App extends React.Component {
 
@@ -28,6 +29,7 @@ class App extends React.Component {
 					{ this.props.children }
 				</div>
 				<Footer />
+				<BackTop />
 			</div>
 		)
 	}
